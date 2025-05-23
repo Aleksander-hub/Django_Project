@@ -1,0 +1,40 @@
+body {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+aside ul {
+    list-style: none;         /* убираем маркеры списка */
+    padding: 0;
+    margin: 0;
+    display: flex;            /* элементы в ряд */
+    gap: 20px;                /* расстояние между пунктами */
+}
+
+aside ul li {
+    /* можно добавить стили для li, если нужно */
+}
+
+aside ul li a {
+    text-decoration: none;    /* убираем подчеркивание */
+    color: #333;              /* цвет ссылки */
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+aside ul li a:hover {
+    background: #f0f0f0;      /* эффект при наведении */
+}
+
+aside ul li a,
+aside ul li a:visited,
+aside ul li a:active,
+aside ul li a:hover,
+aside ul li a:focus {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
