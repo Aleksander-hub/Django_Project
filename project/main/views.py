@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    pass
+    return render(request, 'main/index.html')
 
 def about(request):
-    pass
+    return render(request, 'main/about.html')
