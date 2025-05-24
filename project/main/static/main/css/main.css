@@ -1,40 +1,184 @@
+/* Modern color scheme and variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #2c3e50;
+    --background-color: #f5f6fa;
+    --nav-bg: #ffffff;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Base styles */
 body {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Navigation styles */
+aside {
+    background-color: var(--nav-bg);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin: 50px auto 0;
+    max-width: 1200px;
+    width: calc(100% - 200px); /* учитываем отступы по 100px с каждой стороны */
 }
 
 aside ul {
-    list-style: none;         /* убираем маркеры списка */
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;            /* элементы в ряд */
-    gap: 20px;                /* расстояние между пунктами */
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 aside ul li {
-    /* можно добавить стили для li, если нужно */
+    position: relative;
 }
 
 aside ul li a {
-    text-decoration: none;    /* убираем подчеркивание */
-    color: #333;              /* цвет ссылки */
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: background 0.2s;
-}
-
-aside ul li a:hover {
-    background: #f0f0f0;      /* эффект при наведении */
-}
-
-aside ul li a,
-aside ul li a:visited,
-aside ul li a:active,
-aside ul li a:hover,
-aside ul li a:focus {
     text-decoration: none;
-    color: #333;
-    padding: 8px 16px;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: block;
+    font-size: 1.5em; /* Увеличиваем шрифт в 1.5 раза */
+    border-bottom: none;
+}
+
+aside ul li a:hover,
+aside ul li a:focus,
+aside ul li a:active {
+    color: var(--secondary-color);
+    background-color: rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* Ссылки :visited должны изменять в основном только цвет из соображений приватности.
+   Избегайте transform или других изменений стиля, которые могут быть использованы для определения истории браузера. */
+aside ul li a:visited {
+    color: var(--secondary-color); /* Или другой цвет, специфичный для посещенных ссылок */
+    text-decoration: none !important; /* Сохранено из оригинального объединенного правила */
+    border-bottom: none !important;   /* Сохранено из оригинального объединенного правила */
+    /* background-color и transform из оригинального объединенного правила здесь опущены для :visited */
+}
+
+
+/* Main content area */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease-out;
+}
+
+main h1, main h2, main h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+main p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    aside {
+        margin: 20px auto 0;
+        width: calc(100% - 40px); /* учитываем отступы по 20px с каждой стороны */
+    }
+    
+    aside ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    body {
+        margin: 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modern button styles */
+.button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
     border-radius: 4px;
-    transition: background 0.2s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Card styles */
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Form styles */
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
