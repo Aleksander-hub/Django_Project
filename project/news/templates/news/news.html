@@ -1,0 +1,18 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Новости на сайте{% endblock title %}
+
+{% block content %}
+    <h1>Новости на сайте</h1>
+    
+    {% for el in news %}
+        <div class="alert alert-warning">
+            {% if el.photo %}
+                <img src="{{ el.photo.url }}" alt="{{ el.title }}" class="img-thumbnail mb-2" style="max-width: 200px; height: auto;">
+            {% endif %}
+            <h3>{{ el.title }}</h3>
+            <p>{{ el.full_text }}</p>
+        </div>
+    {% endfor %}
+    
+{% endblock  %}
