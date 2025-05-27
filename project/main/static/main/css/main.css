@@ -182,3 +182,31 @@ input:focus, textarea:focus {
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
 }
+
+.class_news {
+    /* Убираем float для стандартного блочного поведения */
+    display: block; 
+    width: 90%; /* Делаем ширину адаптивной */
+    max-width: 400px; /* Ограничиваем максимальную ширину на больших экранах */
+    margin: 20px auto; /* 20px сверху/снизу, auto слева/справа для центрирования */
+    text-align: left;
+    background-color: white; /* Пример фона, как у .card */
+    padding: 1.5rem; /* Пример внутренних отступов, как у .card */
+    border-radius: 10px; /* Пример скругления углов, как у .card */
+    box-shadow: var(--shadow); /* Используем переменную тени из :root */
+    /* Если нужны эффекты при наведении, можно добавить transition, как у .card */
+    /* transition: transform 0.3s ease; */
+}
+/* Если нужен эффект при наведении, как у .card: */
+/* .class_news:hover {
+    transform: translateY(-5px);
+} */
+
+.class_news img {
+    width: 100%; /* Изображение будет занимать всю ширину .class_news */
+    max-height: 200px; /* Максимальная высота изображения, подбери значение по вкусу */
+    object-fit: cover; /* Масштабирует изображение с сохранением пропорций, чтобы заполнить блок, обрезая лишнее */
+    display: block; /* Убирает лишние отступы под изображением, если они есть */
+    margin-bottom: 10px; /* Отступ снизу от изображения до заголовка */
+    border-radius: 4px; /* Немного скруглим углы у фото, если нужно */
+}
