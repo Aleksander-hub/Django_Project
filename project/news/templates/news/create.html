@@ -5,18 +5,30 @@
 {% block content %}
     <div class="features">
         <h1>Форма по добавлению новости на сайте</h1>
-
         <form method="post" enctype="multipart/form-data">
-            {% csrf_token %} {# Не забудьте добавить CSRF токен для безопасности #}
-            <label for="photo_id">Фото:</label>
-            <input type="file" name="photo" accept="image/*" class="form-control" id="photo_id"><br>
-            <input type="text" name="title" placeholder="Название статьи" class="form-control"><br>
-            <input type="text" name="anons" placeholder="Анонс статьи" class="form-control"><br>
-            <textarea name="full_text" placeholder="Текст статьи" class="form-control"></textarea><br>
-            <input type="date" name="date" class="form-control"><br>
-            <input type="time" name="time" class="form-control"><br>
+            {% csrf_token %}
+            {{ form.media }} {# Для виджетов, требующих JS/CSS #}
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            {% for field in form %}
+                <div class="form-group mb-3">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }} {# Django отрендерит поле с правильным виджетом и классом form-control, если он задан в виджете #}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
             <button class="btn btn-success" type="submit">Добавить</button>
         </form>
     </div>
-    
 {% endblock  %}
