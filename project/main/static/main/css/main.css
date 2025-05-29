@@ -210,3 +210,9 @@ input:focus, textarea:focus {
     margin-bottom: 10px; /* Отступ снизу от изображения до заголовка */
     border-radius: 4px; /* Немного скруглим углы у фото, если нужно */
 }
+
+form {
+    margin-left: 20%;
+    width: 600px;
+    margin-top: 50px;
+}

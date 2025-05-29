@@ -1,0 +1,22 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Форма по добавлению новости на сайте{% endblock title %}
+
+{% block content %}
+    <div class="features">
+        <h1>Форма по добавлению новости на сайте</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} {# Не забудьте добавить CSRF токен для безопасности #}
+            <label for="photo_id">Фото:</label>
+            <input type="file" name="photo" accept="image/*" class="form-control" id="photo_id"><br>
+            <input type="text" name="title" placeholder="Название статьи" class="form-control"><br>
+            <input type="text" name="anons" placeholder="Анонс статьи" class="form-control"><br>
+            <textarea name="full_text" placeholder="Текст статьи" class="form-control"></textarea><br>
+            <input type="date" name="date" class="form-control"><br>
+            <input type="time" name="time" class="form-control"><br>
+            <button class="btn btn-success" type="submit">Добавить</button>
+        </form>
+    </div>
+    
+{% endblock  %}
