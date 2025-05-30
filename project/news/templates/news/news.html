@@ -3,21 +3,23 @@
 {% block title %}Новости на сайте{% endblock title %}
 
 {% block content %}
-    
     <h1>Новости на сайте</h1>
     
     {% if news %}
         {% for el in news %}
-            <div class="class_news">
+            <div class="news-item">
                 {% if el.photo %}
-                    <img src="{{ el.photo.url }}" alt="{{ el.title }}">
+                    <img src="{{ el.photo.url }}" alt="{{ el.title }}" class="news-photo">
                 {% endif %}
                 <h3>{{ el.title }}</h3>
-                <p>{{ el.full_text }}</p>
+                <p class="news-date">{{ el.date|date:"d.m.Y H:i" }}</p>
+                <p class="news-anons">{{ el.anons }}</p>
+                <a href="{% url 'news_detail' el.id %}" class="btn btn-warning">Читать полностью</a>
             </div>
         {% endfor %}
     {% else %}
         <p>Пока нет новостей</p>
     {% endif %}
     
-{% endblock  %}
+    <a href="{% url 'create' %}" class="btn btn-primary">Добавить новость</a>
+{% endblock %}

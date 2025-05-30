@@ -1,0 +1,36 @@
+/* Стили для новостей */
+.news-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.news-photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.news-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.news-anons {
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.news-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.news-item .btn {
+    margin-top: 10px;
+} 

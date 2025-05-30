@@ -1,11 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Articles
 from .forms import ArticlesForm
+from django.views.generic import DetailView
 
 
 def news(request):
     all_articles = Articles.objects.order_by('-date')
     return render(request,'news/news.html', {'news': all_articles})
+
+
+class NewsDetailView(DetailView):
+    model = Articles
+    template_name = 'news/detail_view.html'
+    context_object_name = 'article'
+
 
 def create(request):
     error = ''
@@ -20,4 +28,8 @@ def create(request):
     form = ArticlesForm()
     data = {'form': form, 'error': error}
     return render(request,'news/create.html', data)
+
+def news_detail(request, pk):
+    article = get_object_or_404(Articles, pk=pk)
+    return render(request, 'news/news_detail.html', {'article': article})
     
