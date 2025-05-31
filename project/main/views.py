@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from news.models import Articles
 
 
 
 def index(request):
+    news = Articles.objects.order_by('-date')
     data = {
-        'index': 'Главная страница'
+        'index': 'Главная страница',
+        'news': news
     }
     return render(request, 'main/index.html', data)
 

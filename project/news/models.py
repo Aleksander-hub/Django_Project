@@ -3,8 +3,8 @@ from django.db import models
 
 class Articles(models.Model):
     title = models.CharField('Название', max_length=50)
-    anons = models.CharField('Анонс', max_length=250)
-    full_text = models.TextField('Статья')
+    anons = models.CharField('Анонс', max_length=50)
+    full_text = models.TextField('Статья', max_length=100)
     date = models.DateTimeField('Дата публикации')
     photo = models.ImageField('Фото', upload_to='photos/%Y/%m/%d/', blank=True, null=True)
     # ... другие поля ...

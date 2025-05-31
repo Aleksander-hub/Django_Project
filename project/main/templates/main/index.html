@@ -4,6 +4,20 @@
 
 {% block content %}
     <h1>{{ index }}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio cupiditate architecto iste ducimus earum delectus illo veritatis beatae possimus quidem nesciunt eaque assumenda, nobis corporis, tempora, officia enim iure a!</p>
-    
-{% endblock  %}
+    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+        {% if news %}
+            {% for el in news %}
+                <div class="news-item">
+                    {% if el.photo %}
+                        <img src="{{ el.photo.url }}" alt="{{ el.title }}" class="news-photo">
+                    {% endif %}
+                    <div class="news-content">
+                        <div class="news-fulltext">{{ el.full_text|linebreaks }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Пока нет новостей</p>
+        {% endif %}
+    </div>
+{% endblock %}
