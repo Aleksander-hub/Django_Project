@@ -33,4 +33,36 @@
 
 .news-item .btn {
     margin-top: 10px;
+}
+
+.news-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.news-actions .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.news-actions .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.news-actions .btn-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.news-actions .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.news-actions .btn:hover {
+    opacity: 0.9;
 } 

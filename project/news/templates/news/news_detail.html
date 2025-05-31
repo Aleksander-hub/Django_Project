@@ -9,10 +9,13 @@
         {% endif %}
         <h1>{{ article.title }}</h1>
         <p class="news-date">{{ article.date|date:"d.m.Y H:i" }}</p>
-        <p class="news-anons">{{ article.anons }}</p>
         <div class="news-text">
             {{ article.full_text|linebreaks }}
         </div>
-        <a href="{% url 'news' %}" class="btn btn-primary">Назад к новостям</a>
+        <div class="news-actions">
+            <a href="{% url 'news' %}" class="btn btn-primary">Назад к новостям</a>
+            <a href="{% url 'news_update' article.id %}" class="btn btn-warning">Редактировать</a>
+            <a href="{% url 'news_delete' article.id %}" class="btn btn-danger">Удалить</a>
+        </div>
     </div>
 {% endblock %}
